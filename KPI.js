@@ -1,5 +1,5 @@
 function postSlack() {
-  var obj = SpreadsheetApp.openById('12ydsDG0adre9y7CVCjKjh-PCKADYZO_zNqrYd870_fA');
+  var obj = SpreadsheetApp.openById('');//スプシURLの真ん中のところを入れる
   
               
               
@@ -10,7 +10,7 @@ function postSlack() {
   var values1 = sheet.getRange(2,2).getValue();
   
   //上記で取得したvalues変数（セルの内容）をSlackに綺麗に表示されるようにtext変数にする
-  var text = ("残りチーム経由入会数:" + values + "\n"+ "残りエントリー数:" + values1 +"\n" +"詳細は以下URL"+"\n"+"https://docs.google.com/spreadsheets/d/19tEyRo9HHAZygOy1QtQBq8zDsl18ncntx8vFdqw-l7s/edit#gid=893075736");
+  var text = ("残りチーム経由入会数:" + values + "\n"+ "残りエントリー数:" + values1 +"\n" +"詳細は以下URL"+"\n"+"URL貼れる");
 
   //データをJSON形式にする
   //名前（name）にtextを含む必要がある
