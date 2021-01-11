@@ -29,6 +29,6 @@ function postSlack() {
     };
 
   // UrlFetchAppを使って、POSTする
-    var url = "https://hooks.slack.com/services/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";
+    var url = "";//webhookのURL
     UrlFetchApp.fetch(url, options);
 };
