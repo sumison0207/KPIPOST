@@ -1,0 +1,34 @@
+function postSlack() {
+  var obj = SpreadsheetApp.openById('12ydsDG0adre9y7CVCjKjh-PCKADYZO_zNqrYd870_fA');
+  
+              
+              
+  var sheet = obj.getSheetByName("シート1");
+
+  //　シートのセルを指定した後、セルの内容を取得している
+  var values = sheet.getRange(1,2).getValue();
+  var values1 = sheet.getRange(2,2).getValue();
+  
+  //上記で取得したvalues変数（セルの内容）をSlackに綺麗に表示されるようにtext変数にする
+  var text = ("残りチーム経由入会数:" + values + "\n"+ "残りエントリー数:" + values1 +"\n" +"詳細は以下URL"+"\n"+"https://docs.google.com/spreadsheets/d/19tEyRo9HHAZygOy1QtQBq8zDsl18ncntx8vFdqw-l7s/edit#gid=893075736");
+
+  //データをJSON形式にする
+  //名前（name）にtextを含む必要がある
+  var payload = {
+        "text": text,
+        'icon_emoji': ':hedgehog:',  //ここでアイコンを指定
+       　"username" : "これが現実",
+    };
+  
+  //postオプションを指定
+   var options = {
+        "method": "POST",
+        'contentType' : 'application/json',
+  //JSONオブジェクトを文字列にする
+        "payload": JSON.stringify(payload)
+    };
+
+  // UrlFetchAppを使って、POSTする
+    var url = "https://hooks.slack.com/services/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";
+    UrlFetchApp.fetch(url, options);
+};
